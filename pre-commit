@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Hello, this is first commit"
+#echo "$@"
+diff_files=$(git diff --name-only --cached --diff-filter=d)
+#echo "$diff_files"
+#echo "$(diff_files | sort | uniq.)"
+
+./cpch.exe "$diff_files"
+#new_diff_files=$(echo "$diff_files" | tr '\n' ' ')
+for file in $diff_files; do
+  git add "$file"
+done
